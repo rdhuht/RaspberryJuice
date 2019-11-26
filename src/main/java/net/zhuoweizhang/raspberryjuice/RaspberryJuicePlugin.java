@@ -97,9 +97,16 @@ public class RaspberryJuicePlugin extends JavaPlugin implements Listener {
 	@EventHandler
 	public void PlayerJoin(PlayerJoinEvent event) {
 		Player p = event.getPlayer();
-		//p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 2, true, false));	// give night vision power
-		Server server = getServer();
-		server.broadcastMessage("Welcome " + p.getPlayerListName());
+		p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 2, true, false));	// give night vision power
+//		Server server = getServer();
+//		server.broadcastMessage("Welcome " + p.getPlayerListName());
+		if (p.isOp()) {
+			event.setJoinMessage(null);
+			Bukkit.broadcastMessage(ChatColor.YELLOW + "【管理员】" + ChatColor.RED + event.getPlayer().getName() + ChatColor.WHITE + "加入了游戏");
+		} else {
+			event.setJoinMessage("Welcome" + " " + ChatColor.GREEN + p.getName() + ChatColor.WHITE + "!" +
+					" 欢迎来到小栈教育-我的世界Python趣味编程课！");
+		}
 	}
 
 	@EventHandler(ignoreCancelled=true)
