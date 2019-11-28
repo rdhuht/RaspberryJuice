@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="raspberryjuice:jar">
+    <output-path>D:/Spigot-1.12.2/plugins</output-path>
+    <root id="archive" name="raspberryjuice.jar">
+      <element id="module-output" name="raspberryjuice" />
+    </root>
+  </artifact>
+</component>
